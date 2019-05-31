@@ -1,10 +1,11 @@
 from os import sys, path
+import os
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 import time
-import download_csv
-import standard_functions
+import download
+import standard
 import settings
 from pynput.keyboard import Controller
 
@@ -15,13 +16,16 @@ from pynput.keyboard import Controller
 settings.keyboard = Controller()
 
 # initialize web browser used to retrieve / input information
-standard_functions.initialize_browser()
+standard.initialize_browser()
 
 # call the login function
-standard_functions.login()
+standard.login()
 
 # Kick off process
-download_csv.navigate()
+download.navigate()
+
+# Rename file
+download.rename()
 
 # exit out of web browser
 time.sleep(1)
